@@ -4,7 +4,7 @@ function init(){
     const cookies = document.cookie.split('=');
     const token = cookies[cookies.length - 1];
   
-        fetch('http://localhost:8000/api/users', {
+        fetch('https://movieatery-api.herokuapp.com/api/users', {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -27,7 +27,7 @@ function init(){
                 document.querySelectorAll(".btn-danger").forEach(item =>{
                     item.addEventListener("click", e => {
                             e.preventDefault();
-                            fetch('http://localhost:8000/api/users/' + item.id, {
+                            fetch('https://movieatery-api.herokuapp.com/api/users/' + item.id, {
                                 method: 'DELETE',
                                 headers: { 'Content-Type': 'application/json','Authorization': `Bearer ${token}` }
                                 
@@ -46,7 +46,7 @@ function init(){
                 document.querySelectorAll(".btn-primary").forEach(item =>{
                     item.addEventListener("click", e => {
                             e.preventDefault();
-                            fetch('http://localhost:8000/api/users/' + item.id, {
+                            fetch('https://movieatery-api.herokuapp.com/api/users/' + item.id, {
                                 method: 'GET',
                                 headers: { 'Content-Type': 'application/json','Authorization': `Bearer ${token}` }
                                 
@@ -80,7 +80,7 @@ function init(){
             if(validateAddUser(user)){
                 return;
             }
-            fetch('http://localhost:8000/api/users', {
+            fetch('https://movieatery-api.herokuapp.com/api/users', {
             method: 'POST',
             headers: { 
                 'Content-Type': 'application/json',
@@ -112,7 +112,7 @@ function init(){
             if(validateUpdateUser(user)){
                 return;
             }
-            fetch('http://localhost:8000/api/users/'+ id, {
+            fetch('https://movieatery-api.herokuapp.com/api/users/'+ id, {
             method: 'PUT',
             headers: { 
                 'Content-Type': 'application/json',

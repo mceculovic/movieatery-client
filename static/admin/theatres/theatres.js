@@ -4,7 +4,7 @@ function init(){
     const cookies = document.cookie.split('=');
     const token = cookies[cookies.length - 1];
   
-        fetch('http://127.0.0.1:8000/api/theatres', {
+        fetch('https://movieatery-api.herokuapp.com/api/theatres', {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -31,7 +31,7 @@ function init(){
                 document.querySelectorAll(".theatreDelete").forEach(item =>{
                     item.addEventListener("click", e => {
                             e.preventDefault();
-                            fetch('http://localhost:8000/api/theatres/' + item.id, {
+                            fetch('https://movieatery-api.herokuapp.com/api/theatres/' + item.id, {
                                 method: 'DELETE',
                                 headers: { 'Content-Type': 'application/json','Authorization': `Bearer ${token}` }
                                 
@@ -50,7 +50,7 @@ function init(){
                 document.querySelectorAll(".theatreUpdate").forEach(item =>{
                     item.addEventListener("click", e => {
                             e.preventDefault();
-                            fetch('http://localhost:8000/api/theatres/' + item.id, {
+                            fetch('https://movieatery-api.herokuapp.com/api/theatres/' + item.id, {
                                 method: 'GET',
                                 headers: { 'Content-Type': 'application/json','Authorization': `Bearer ${token}` }
                                 
@@ -73,7 +73,7 @@ function init(){
                 });
             });
 
-            fetch('http://127.0.0.1:8000/api/seatslayout', {
+            fetch('https://movieatery-api.herokuapp.com/api/seatslayout', {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -97,7 +97,7 @@ function init(){
                 document.querySelectorAll(".seatDelete").forEach(item =>{
                     item.addEventListener("click", e => {
                             e.preventDefault();
-                            fetch('http://localhost:8000/api/seatslayout/' + item.id, {
+                            fetch('https://movieatery-api.herokuapp.com/api/seatslayout/' + item.id, {
                                 method: 'DELETE',
                                 headers: { 'Content-Type': 'application/json','Authorization': `Bearer ${token}` }
                                 
@@ -116,7 +116,7 @@ function init(){
                 document.querySelectorAll(".seatUpdate").forEach(item =>{
                     item.addEventListener("click", e => {
                             e.preventDefault();
-                            fetch('http://localhost:8000/api/seatslayout/' + item.id, {
+                            fetch('https://movieatery-api.herokuapp.com/api/seatslayout/' + item.id, {
                                 method: 'GET',
                                 headers: { 'Content-Type': 'application/json','Authorization': `Bearer ${token}` }
                                 
@@ -157,7 +157,7 @@ function init(){
                 formData.append(name, theatre[name]);
               }
             formData.append('files',document.getElementById('files').files[0]);
-            fetch('http://localhost:8000/api/theatres', {
+            fetch('https://movieatery-api.herokuapp.com/api/theatres', {
             method: 'POST',
             headers: { 
                 'Authorization': `Bearer ${token}`
@@ -189,7 +189,7 @@ function init(){
             if(validateTheatre(theatre)){
                 return;
             }
-            fetch('http://localhost:8000/api/theatres/'+ id, {
+            fetch('https://movieatery-api.herokuapp.com/api/theatres/'+ id, {
             method: 'PUT',
             headers: { 
                 'Content-Type': 'application/json',
@@ -219,7 +219,7 @@ function init(){
             if(validateSeat(seatLayout)){
                 return;
             }
-            fetch('http://localhost:8000/api/seatslayout', {
+            fetch('https://movieatery-api.herokuapp.com/api/seatslayout', {
             method: 'POST',
             headers: { 
                 'Content-Type': 'application/json',
@@ -251,7 +251,7 @@ function init(){
             if(validateSeat(seatLayout)){
                 return;
             }
-            fetch('http://localhost:8000/api/seatslayout/'+ id, {
+            fetch('https://movieatery-api.herokuapp.com/api/seatslayout/'+ id, {
             method: 'PUT',
             headers: { 
                 'Content-Type': 'application/json',

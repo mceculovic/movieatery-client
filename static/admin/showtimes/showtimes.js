@@ -4,7 +4,7 @@ function init(){
     const cookies = document.cookie.split('=');
     const token = cookies[cookies.length - 1];
   
-        fetch('http://localhost:8000/api/movies', {
+        fetch('https://movieatery-api.herokuapp.com/api/movies', {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -39,7 +39,7 @@ function init(){
                 });
             });
 
-            fetch('http://localhost:8000/api/theatres', {
+            fetch('https://movieatery-api.herokuapp.com/api/theatres', {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -62,7 +62,7 @@ function init(){
            
             });
 
-            fetch('http://localhost:8000/api/showtimes', {
+            fetch('https://movieatery-api.herokuapp.com/api/showtimes', {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -86,7 +86,7 @@ function init(){
                 document.querySelectorAll(".btn-danger").forEach(item =>{
                     item.addEventListener("click", e => {
                             e.preventDefault();
-                            fetch('http://localhost:8000/api/showtimes/' + item.id, {
+                            fetch('https://movieatery-api.herokuapp.com/api/showtimes/' + item.id, {
                                 method: 'DELETE',
                                 headers: { 'Content-Type': 'application/json','Authorization': `Bearer ${token}` }
                                 
@@ -105,7 +105,7 @@ function init(){
                 document.querySelectorAll(".btn-primary").forEach(item =>{
                     item.addEventListener("click", e => {
                             e.preventDefault();
-                            fetch('http://localhost:8000/api/showtimes/' + item.id, {
+                            fetch('https://movieatery-api.herokuapp.com/api/showtimes/' + item.id, {
                                 method: 'GET',
                                 headers: { 'Content-Type': 'application/json','Authorization': `Bearer ${token}` }
                                 
@@ -144,7 +144,7 @@ function init(){
                 return;
             }
 
-            fetch('http://localhost:8000/api/showtimes' , {
+            fetch('https://movieatery-api.herokuapp.com/api/showtimes' , {
                 method: 'POST',
                 headers: { 
                     'Content-Type': 'application/json',
@@ -179,7 +179,7 @@ function init(){
             return;
         
         
-        fetch('http://localhost:8000/api/showtimes/' + id, {
+        fetch('https://movieatery-api.herokuapp.com/api/showtimes/' + id, {
             method: 'PUT',
             headers: { 
                 'Content-Type': 'application/json',

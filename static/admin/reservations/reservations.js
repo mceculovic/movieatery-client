@@ -4,7 +4,7 @@ function init(){
     const cookies = document.cookie.split('=');
     const token = cookies[cookies.length - 1];
   
-        fetch('http://localhost:8000/api/users', {
+        fetch('https://movieatery-api.herokuapp.com/api/users', {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -28,7 +28,7 @@ function init(){
                 });
             });
 
-            fetch('http://localhost:8000/api/showtimes', {
+            fetch('https://movieatery-api.herokuapp.com/api/showtimes', {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -52,7 +52,7 @@ function init(){
                 document.querySelectorAll(".viewSeats").forEach(item =>{
                     item.addEventListener("click", e => {
                             e.preventDefault();
-                            fetch('http://localhost:8000/api/showtimes/' + item.id, {
+                            fetch('https://movieatery-api.herokuapp.com/api/showtimes/' + item.id, {
                                 method: 'GET',
                                 headers: { 'Content-Type': 'application/json','Authorization': `Bearer ${token}` }
                                 
@@ -64,7 +64,7 @@ function init(){
                                     } else {
 
                                         
-                                        fetch('http://localhost:8000/api/seatreservations', {
+                                        fetch('https://movieatery-api.herokuapp.com/api/seatreservations', {
                                             headers: {
                                                 'Authorization': `Bearer ${token}`
                                             }
@@ -109,7 +109,7 @@ function init(){
 
            
 
-            fetch('http://localhost:8000/api/reservations', {
+            fetch('https://movieatery-api.herokuapp.com/api/reservations', {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -133,7 +133,7 @@ function init(){
                 document.querySelectorAll(".btn-danger").forEach(item =>{
                     item.addEventListener("click", e => {
                             e.preventDefault();
-                            fetch('http://localhost:8000/api/reservations/' + item.id, {
+                            fetch('https://movieatery-api.herokuapp.com/api/reservations/' + item.id, {
                                 method: 'DELETE',
                                 headers: { 'Content-Type': 'application/json','Authorization': `Bearer ${token}` }
                                 
@@ -175,7 +175,7 @@ function init(){
             
 
 
-            fetch('http://localhost:8000/api/reservations' , {
+            fetch('https://movieatery-api.herokuapp.com/api/reservations' , {
                 method: 'POST',
                 headers: { 
                     'Content-Type': 'application/json',

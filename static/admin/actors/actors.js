@@ -4,7 +4,7 @@ function init(){
     const cookies = document.cookie.split('=');
     const token = cookies[cookies.length - 1];
   
-        fetch('http://localhost:8000/api/actors', {
+        fetch('https://movieatery-api.herokuapp.com/api/actors', {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -33,7 +33,7 @@ function init(){
                 document.querySelectorAll(".btn-danger").forEach(item =>{
                     item.addEventListener("click", e => {
                             e.preventDefault();
-                            fetch('http://localhost:8000/api/actors/' + item.id, {
+                            fetch('https://movieatery-api.herokuapp.com/api/actors/' + item.id, {
                                 method: 'DELETE',
                                 headers: { 'Content-Type': 'application/json','Authorization': `Bearer ${token}` }
                                 
@@ -52,7 +52,7 @@ function init(){
                 document.querySelectorAll(".btn-primary").forEach(item =>{
                     item.addEventListener("click", e => {
                             e.preventDefault();
-                            fetch('http://localhost:8000/api/actors/' + item.id, {
+                            fetch('https://movieatery-api.herokuapp.com/api/actors/' + item.id, {
                                 method: 'GET',
                                 headers: { 'Content-Type': 'application/json','Authorization': `Bearer ${token}` }
                                 
@@ -75,7 +75,7 @@ function init(){
                 })
             });
 
-            fetch('http://localhost:8000/api/movies', {
+            fetch('https://movieatery-api.herokuapp.com/api/movies', {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -115,7 +115,7 @@ function init(){
             if(validateActor(actor)){
                 return;
             }
-            fetch('http://localhost:8000/api/actors', {
+            fetch('https://movieatery-api.herokuapp.com/api/actors', {
             method: 'POST',
             headers: { 
                 'Content-Type': 'application/json',
@@ -148,7 +148,7 @@ function init(){
             if(validateActor(actor)){
                 return;
             }
-            fetch('http://localhost:8000/api/actors/'+ id, {
+            fetch('https://movieatery-api.herokuapp.com/api/actors/'+ id, {
             method: 'PUT',
             headers: { 
                 'Content-Type': 'application/json',
@@ -174,7 +174,7 @@ function init(){
                     actorId: document.getElementById('actorId').value,
                 }
 
-                fetch('http://localhost:8000/api/cast', {
+                fetch('https://movieatery-api.herokuapp.com/api/cast', {
                     method: 'POST',
                     headers: { 
                         'Content-Type': 'application/json',
@@ -197,7 +197,7 @@ function init(){
             
             let url = document.getElementById('movieId').value + '/' + document.getElementById('actorId').value;
 
-            fetch('http://localhost:8000/api/cast/' + url, {
+            fetch('https://movieatery-api.herokuapp.com/api/cast/' + url, {
                 method: 'DELETE',
                 headers: { 
                     'Content-Type': 'application/json',

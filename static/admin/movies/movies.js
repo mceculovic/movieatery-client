@@ -4,7 +4,7 @@ function init(){
     const cookies = document.cookie.split('=');
     const token = cookies[cookies.length - 1];
   
-        fetch('http://localhost:8000/api/movies', {
+        fetch('https://movieatery-api.herokuapp.com/api/movies', {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -28,7 +28,7 @@ function init(){
                 document.querySelectorAll(".delMovie").forEach(item =>{
                     item.addEventListener("click", e => {
                             e.preventDefault();
-                            fetch('http://localhost:8000/api/movies/' + item.id, {
+                            fetch('https://movieatery-api.herokuapp.com/api/movies/' + item.id, {
                                 method: 'DELETE',
                                 headers: { 'Content-Type': 'application/json','Authorization': `Bearer ${token}` }
                                 
@@ -47,7 +47,7 @@ function init(){
                 document.querySelectorAll(".updMovie").forEach(item =>{
                     item.addEventListener("click", e => {
                             e.preventDefault();
-                            fetch('http://localhost:8000/api/movies/' + item.id, {
+                            fetch('https://movieatery-api.herokuapp.com/api/movies/' + item.id, {
                                 method: 'GET',
                                 headers: { 'Content-Type': 'application/json','Authorization': `Bearer ${token}` }
                                 
@@ -71,7 +71,7 @@ function init(){
                 })
             });
 
-            fetch('http://localhost:8000/api/genres', {
+            fetch('https://movieatery-api.herokuapp.com/api/genres', {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -95,7 +95,7 @@ function init(){
                     document.querySelectorAll(".delGenre").forEach(item =>{
                         item.addEventListener("click", e => {
                                 e.preventDefault();
-                                fetch('http://localhost:8000/api/genres/' + item.id, {
+                                fetch('https://movieatery-api.herokuapp.com/api/genres/' + item.id, {
                                     method: 'DELETE',
                                     headers: { 'Content-Type': 'application/json','Authorization': `Bearer ${token}` }
                                     
@@ -114,7 +114,7 @@ function init(){
                     document.querySelectorAll(".selGenre").forEach(item =>{
                         item.addEventListener("click", e => {
                                 e.preventDefault();
-                                fetch('http://localhost:8000/api/genres/' + item.id, {
+                                fetch('https://movieatery-api.herokuapp.com/api/genres/' + item.id, {
                                     method: 'GET',
                                     headers: { 'Content-Type': 'application/json','Authorization': `Bearer ${token}` }
                                     
@@ -151,7 +151,7 @@ function init(){
                 formData.append(name, movie[name]);
               }
             formData.append('files',document.getElementById('files').files[0]);
-            fetch('http://localhost:8000/api/movies', {
+            fetch('https://movieatery-api.herokuapp.com/api/movies', {
             method: 'POST',
             headers: { 
                 'Authorization': `Bearer ${token}`,
@@ -184,7 +184,7 @@ function init(){
             if(validateMovie(movie)){
                 return;
             }
-            fetch('http://localhost:8000/api/movies/'+ id, {
+            fetch('https://movieatery-api.herokuapp.com/api/movies/'+ id, {
             method: 'PUT',
             headers: { 
                 'Content-Type': 'application/json',
@@ -212,7 +212,7 @@ function init(){
                 return;
             }
           
-            fetch('http://localhost:8000/api/genres', {
+            fetch('https://movieatery-api.herokuapp.com/api/genres', {
             method: 'POST',
             headers: { 
                 'Content-Type': 'application/json',

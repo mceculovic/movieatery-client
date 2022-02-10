@@ -14,7 +14,7 @@ function init() {
             return;
         }
 
-        fetch('http://localhost:9000/login', {
+        fetch('https://movieatory-auth.herokuapp.com/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)

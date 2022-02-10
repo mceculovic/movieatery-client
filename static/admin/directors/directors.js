@@ -4,7 +4,7 @@ function init(){
     const cookies = document.cookie.split('=');
     const token = cookies[cookies.length - 1];
   
-        fetch('http://localhost:8000/api/directors', {
+        fetch('https://movieatery-api.herokuapp.com/api/directors', {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -33,7 +33,7 @@ function init(){
                 document.querySelectorAll(".btn-danger").forEach(item =>{
                     item.addEventListener("click", e => {
                             e.preventDefault();
-                            fetch('http://localhost:8000/api/directors/' + item.id, {
+                            fetch('https://movieatery-api.herokuapp.com/api/directors/' + item.id, {
                                 method: 'DELETE',
                                 headers: { 'Content-Type': 'application/json','Authorization': `Bearer ${token}` }
                                 
@@ -52,7 +52,7 @@ function init(){
                 document.querySelectorAll(".btn-primary").forEach(item =>{
                     item.addEventListener("click", e => {
                             e.preventDefault();
-                            fetch('http://localhost:8000/api/directors/' + item.id, {
+                            fetch('https://movieatery-api.herokuapp.com/api/directors/' + item.id, {
                                 method: 'GET',
                                 headers: { 'Content-Type': 'application/json','Authorization': `Bearer ${token}` }
                                 
@@ -75,7 +75,7 @@ function init(){
                 })
             });
 
-            fetch('http://localhost:8000/api/movies', {
+            fetch('https://movieatery-api.herokuapp.com/api/movies', {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -115,7 +115,7 @@ function init(){
             if(validateDirector(director)){
                 return;
             }
-            fetch('http://localhost:8000/api/directors', {
+            fetch('https://movieatery-api.herokuapp.com/api/directors', {
             method: 'POST',
             headers: { 
                 'Content-Type': 'application/json',
@@ -148,7 +148,7 @@ function init(){
             if(validateDirector(director)){
                 return;
             }
-            fetch('http://localhost:8000/api/directors/'+ id, {
+            fetch('https://movieatery-api.herokuapp.com/api/directors/'+ id, {
             method: 'PUT',
             headers: { 
                 'Content-Type': 'application/json',
@@ -175,7 +175,7 @@ function init(){
                 directorId: document.getElementById('directorId').value,
             }
 
-            fetch('http://localhost:8000/api/directs', {
+            fetch('https://movieatery-api.herokuapp.com/api/directs', {
                 method: 'POST',
                 headers: { 
                     'Content-Type': 'application/json',
@@ -198,7 +198,7 @@ function init(){
         
         let url = document.getElementById('movieId').value + '/' + document.getElementById('directorId').value;
 
-        fetch('http://localhost:8000/api/directs/' + url, {
+        fetch('https://movieatery-api.herokuapp.com/api/directs/' + url, {
             method: 'DELETE',
             headers: { 
                 'Content-Type': 'application/json',
